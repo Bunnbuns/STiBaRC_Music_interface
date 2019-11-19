@@ -1,0 +1,39 @@
+/*
+### music
+*/
+.music-player{
+    display: flex;
+    background: var(--post);
+    color: var(--mainblobwithlisttext);
+}
+.music-player .big-button{
+    display: flex;
+    align-items: center;
+    color: var(--onlitext);
+    background-color: var(--navbutton);
+    text-decoration: none;
+    -webkit-transition: background-color .2s ease-in-out;
+    -o-transition: background-color .2s ease-in-out;
+    transition: background-color .2s ease-in-out;
+    padding: 0 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.music-player .big-button:hover, .music-player .big-button:active{
+    background-color: var(--button2);
+}
+.music-player .info{
+    margin: 1rem .5rem;
+}
+.music-player .info .title{
+    color: var(--mainblobwithlisttext);
+    font-weight: bold;
+    cursor: pointer;
+}
+.music-player .info .artist{
+    color: var(--mainblobwithlisttext);
+    font-size: 90%;
+    display: block;
+    margin-top: .25rem;
+    cursor: pointer;
+}

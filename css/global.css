@@ -35,8 +35,8 @@ img{
     -webkit-transition: background-color .2s ease-in-out;
     -o-transition: background-color .2s ease-in-out;
     transition: background-color .2s ease-in-out;
-    padding: 8px .75rem;
-    margin: 0 .5rem;
+    padding: 8px 1rem;
+    margin: 0 .5rem 0 8px;
     display: flex;
     vertical-align: middle;
     cursor: pointer;
