@@ -1,24 +1,25 @@
 loadTheme();
 
-//drop down thing:
-var specifiedElement = document.getElementById('dd1btn');
-
-document.addEventListener("click", function(event) {
-    var isClickInside = specifiedElement.contains(event.target);
-    
-    if(document.getElementById("dd1").style.display == "none"){
-        document.getElementById("dd1").style.display = "block";
-        document.getElementById("pfp").classList.add("active");
-    }else{
-        document.getElementById("dd1").style.display = "none";
-        document.getElementById("pfp").classList.remove("active");
-    }
-    if (!isClickInside) {
-        //the click was outside the specifiedElement, do something
-        document.getElementById("dd1").style.display = "none";
-        document.getElementById("pfp").classList.remove("active");
-    }
-});
+function loadTheme() {
+	try {
+		var theme = localStorage.getItem('theme');
+		if (theme != undefined) {
+			if (theme == "custom") {
+				if (localStorage.getItem('customtheme').trim() != "") {
+					document.getElementById('themer').href = localStorage.getItem('customtheme');
+				} else {
+					document.getElementById('themer').href = 'css/themes/light.css';
+				}
+			} else {
+				document.getElementById('themer').href = 'css/themes/'+theme+".css";
+			}
+		} else {
+			document.getElementById('themer').href = 'css/themes/light.css';
+		}
+	} catch(err) {
+		console.error(err);
+	}
+}
 
 function getAllUrlParams(url) {
 	var queryString = url ? url.split('?')[1] : window.location.search.slice(1);

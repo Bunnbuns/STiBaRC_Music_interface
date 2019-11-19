@@ -11,26 +11,33 @@
         
     </head>
     <body>
+        
         <div class="nav">
-            <div class="ilb">
-                <a href="index.html">
-                    <img class="nav-img" src="logo-100x.png">
-                </a>
-                <a class="btn first active" href="index.html">Home</a>
-                <a class="btn" href="index.html">Login</a>
+            
+            <a href="index.html" class="brand">
+                <img src="logo-100x.png">
+            </a>
+            <div class="left">
+                
+                <a class="btn" href="index.html">Home</a>
+                <a class="btn" href="#">New</a>
+                
             </div>
-            <div class="ilb right">
-                <span class="spacer"></span>
-                <div class="dropdown" style="display: none">
-                    <a id="dd1btn"><img id="pfp" class="pfp" src="https://bunnbuns.net/buna.png"></a>
-                    <div id="dd1" class="dropdown-content" style="display: none">
-                        <p><small>Logged in: </small>Bunnbuns</p>
-                        <a class="" href="prefrences.html">Prefrences</a>
-                        <a class="red" href="#">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="right">
+                
+                <span id="loggedout" style="display: flex">
+                    <a class="btn" href="#">Log in</a>
+                </span>
+                
+                <span id="loggedin" style="display: flex;">
+                    <a class="btn" href="prefrences.html">
+                        <img id="pfp-img" class="pfp" src="https://bunnbuns.net/buna.png">
+                    </a>
+                </span>
+                
+            </div><!-- / right -->
+            
+        </div><!-- / nav -->
         
         <div class="page">
             <h2>Prefrences</h2>
@@ -46,7 +53,6 @@
         </div>
         
         
-<!--        <div class="anothercloud"></div>-->
         <script src="js/global.js"></script>
         <script src="js/prefrences.js"></script>
     </body>
