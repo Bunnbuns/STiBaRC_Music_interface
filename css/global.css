@@ -266,3 +266,36 @@ input:-moz-read-only { /* For Firefox */
 input:read-only {
   background-color: rgba(220, 220, 220, 0.2)
 }
+/*
+### hero
+*/
+.hero{
+    background: #7c8dc4 url(https://team.stibarc.com/css/index_back.png) no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem 7rem 1rem;
+}
+.hero hr{
+    border: 1px solid rgba(255, 255, 255, 0.23);
+}
+.hero .button{
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.45);
+    color: black;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: rgba(255, 255, 255, 0.23);
+    transition: all 0.2s;
+}
+.hero .button a {
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.hero .button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
