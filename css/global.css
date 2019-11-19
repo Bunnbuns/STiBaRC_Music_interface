@@ -270,11 +270,11 @@ input:read-only {
 ### hero
 */
 .hero{
-    background: #7c8dc4 url(https://team.stibarc.com/css/index_back.png) no-repeat;
+    background: #87a9d6 url(https://team.stibarc.com/css/index_back.png) no-repeat;
     background-size: cover;
     color: white;
     text-align: center;
-    padding: 5rem 1rem 7rem 1rem;
+    padding: 4rem 1rem 7rem 1rem;
 }
 .hero hr{
     border: 1px solid rgba(255, 255, 255, 0.23);
@@ -283,6 +283,7 @@ input:read-only {
     text-decoration: none;
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.45);
+    border: solid 2px rgba(255, 255, 255, 0.45);
     color: black;
     padding: 8px;
     border-radius: 5px;
@@ -290,12 +291,16 @@ input:read-only {
     box-shadow: rgba(255, 255, 255, 0.23);
     transition: all 0.2s;
 }
+.hero .button.outline{
+    background-color: transparent;
+    border: solid 2px rgba(255, 255, 255, 0.45);
+}
 .hero .button a {
     text-decoration: none;
     -webkit-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-.hero .button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+.hero .button:not(.outline):hover {
+    
 }
