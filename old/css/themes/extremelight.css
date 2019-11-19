@@ -1,0 +1,30 @@
+:root {
+    --body: #ebebeb;
+    --textcolor: black;
+    --buttoncolor: white;
+    --buttontext: black;
+    --mainblobwithlist: white;
+    --mainblobwithlisttext: black;
+    --header: #e0e0e0;
+    --messenger: #49B9CA;
+    --footer: #e0e0e0;
+    --bio: #F0F0F0;
+    --post: #ebebeb;
+    --posttext: black;
+    --link: #000000;
+    --visted: #00000;
+    --hover: #000000;
+    --active: #000000;
+    --footertext: black;
+    --comtent: white;
+    --comenttext: black;
+    --spinner1: #FFFFFF;
+    --spinner2: #FFFFFF;
+    --spinner3: #FFFFFF;
+    --hrcolor: black;
+    --onlitext: black;
+    --button2: #bebebe;
+    --maxmarg: auto;
+    --marginlefts: 15px;
+    --marginrights: 15px;
+}

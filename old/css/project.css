@@ -1,0 +1,85 @@
+#projectTitle {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin: 0 0 .5rem 0;
+}
+
+h5 {
+    font-weight: 500;
+    margin: .5rem 0 1rem 0;
+}
+
+#projectStatus {
+    font-weight: 600;
+}
+
+#projectTitle {
+    vertical-align: middle;
+}
+
+span .material-icons {
+    font-size: 1.25rem !important;
+}
+
+#projectIpAddress {
+}
+
+/*- tabs -*/
+.container--tabs {
+    display: block
+}
+
+.container--tabs .nav-tabs {
+    float: left;
+    width: 100%;
+    margin: 0;
+    list-style-type: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0;
+}
+
+.container--tabs .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+.container--tabs .nav-tabs a {
+    color: var(--buttontext);
+    text-decoration: none;
+}
+.container--tabs .nav-tabs > li > a {
+    float: left;
+    margin-right: 4px;
+    line-height: 1.42857143;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px 6px 0 0;
+}
+
+.container--tabs .nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd;
+}
+
+.container--tabs .nav-tabs > li.active > a, .container--tabs .nav-tabs > li.active > a:hover, .container--tabs .nav-tabs > li.active > a:focus {
+    cursor: default;
+    background-color: var(--body);
+    border: 1px solid #ddd;
+}
+
+.container--tabs .tab-content {
+    float: left;
+    width: 100%;
+}
+
+.container--tabs .tab-content > .tab-pane {
+    display: none;
+}
+
+.container--tabs .tab-content > .tab-pane.active {
+    display: block;
+}
+
+.container--tabs .tab-content > .active {
+    display: block;
+}
