@@ -287,7 +287,6 @@ input:read-only {
     padding: 10px;
     border-radius: 5px;
     font-weight: bold;
-    box-shadow: rgba(255, 255, 255, 0.23);
     transition: all 0.2s;
 }
 .hero .button.outline{

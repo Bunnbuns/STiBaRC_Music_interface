@@ -2,27 +2,29 @@
 ### music
 */
 .music-player{
-    display: flex;
     background: var(--post);
     color: var(--mainblobwithlisttext);
+    box-shadow: 0px 1px 5px rgba(77, 77, 77, 0.32);
 }
-.music-player .big-button{
-    display: flex;
-    align-items: center;
-    color: var(--onlitext);
-    background-color: var(--navbutton);
+.music-player .artwork{
+    display: inline-block;
+    vertical-align: middle;
+    background: var(--navbutton) url('../STiBaRC-logo.png') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
     text-decoration: none;
-    -webkit-transition: background-color .2s ease-in-out;
-    -o-transition: background-color .2s ease-in-out;
-    transition: background-color .2s ease-in-out;
-    padding: 0 1.25rem;
-    font-weight: bold;
-    cursor: pointer;
+    width: 80px;
+    height: 80px;
+}
+.music-player .light-outline{
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
 }
 .music-player .big-button:hover, .music-player .big-button:active{
     background-color: var(--button2);
 }
 .music-player .info{
+    display: inline-block;
+    vertical-align: middle;
     margin: 1rem .5rem;
 }
 .music-player .info .title{
