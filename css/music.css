@@ -34,9 +34,10 @@
     top: 25%;
     right: 25%;
     bottom: 25%;
+    cursor: pointer;
     display: none;
 }
-.play-button:hover i{
+.play-button i:hover{
     background-color: var(--navbutton);
 }
 .music-player:hover .play-button{
