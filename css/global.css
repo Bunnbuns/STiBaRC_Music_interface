@@ -29,7 +29,7 @@ img{
     overflow: hidden;
     background-color: var(--header);
     color: var(--onlitext);
-    box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 12px 0px rgba(77, 77, 77, 0.32);
     min-height: 3.25rem;
     position: relative;
     z-index: 1;

@@ -9,6 +9,7 @@
     margin: 10px 0;
 }
 .music-player .artwork{
+    position: relative;
     display: inline-block;
     vertical-align: middle;
     background: var(--navbutton) url('../STiBaRC-logo.png') no-repeat;
@@ -26,6 +27,31 @@
 }
 .light-outline{
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+}
+.play-button{
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    right: 25%;
+    bottom: 25%;
+    display: none;
+}
+.play-button:hover i{
+    background-color: var(--navbutton);
+}
+.music-player:hover .play-button{
+    display: inline-block;
+}
+.play-button i{
+    display: inline-block;
+    color: var(--onlitext);
+    background: var(--header);
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.play-button i{
+    font-size: 2.5rem;
 }
 .music-player .left-br{
     border-top-left-radius: 4px;
