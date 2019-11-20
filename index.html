@@ -26,11 +26,11 @@
             </div>
             <div class="right">
                 
-                <span id="loggedout" style="display: flex">
+                <span id="loggedOut" style="display: flex">
                     <a class="btn" href="#">Log in</a>
                 </span>
                 
-                <span id="loggedin" style="display: none;">
+                <span id="loggedIn" style="display: none;">
                     <a class="btn" href="#">Upload</a>
                     
                     <a class="btn" href="prefrences.html">
@@ -44,14 +44,13 @@
         
         <div class="page">
         
-            <div class="hero">
+            <div class="hero" id="loggedOutHero">
                 <h1>Welcome to the best music.</h1>
                 <br>
                 <a class="button" href="#">Sign up</a>
                 <a class="button outline" href="prefrences.html">Log in</a>
+                <br>
             </div>
-            
-            <br>
         
             <h2>New Music</h2>
             
@@ -147,11 +146,41 @@
                     </span>
                 </div>
                 
+                <div class="music-player song">
+                    <div class="artwork light-outline left-br" style="background-image: url(https://i1.sndcdn.com/artworks-000235144376-gc8a50-t200x200.jpg);">
+                        <span class="play-button">
+                            <i class="material-icons"> play_arrow </i>
+                        </span>
+                    </div>
+                    <span class="info">
+                        <span class="title">Ascent</span>
+                        <div class="artist">Faux Tales</div>
+                    </span>
+                </div>
+                <div class="music-player song">
+                    <div class="artwork light-outline left-br" style="background-image: url(https://i1.sndcdn.com/artworks-000362869188-ny45b6-t200x200.jpg);">
+                        <span class="play-button">
+                            <i class="material-icons"> play_arrow </i>
+                        </span>
+                    </div>
+                    <span class="info">
+                        <span class="title">Sad Waluigi Hours.</span>
+                        <div class="artist">Fireflew</div>
+                    </span>
+                </div>
+                
             </div><!-- / top tracks -->
             
             <br><br><br><br>
         </div>
         
         <script src="js/global.js"></script>
+        <script>
+        if(loggedIn){
+            document.getElementById("loggedOut").style.display = "none";
+            document.getElementById("loggedOutHero").style.display = "none";
+            document.getElementById("loggedIn").style.display = "flex";
+        }
+        </script>
     </body>
 </html>

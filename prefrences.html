@@ -25,11 +25,11 @@
             </div>
             <div class="right">
                 
-                <span id="loggedout" style="display: flex">
+                <span id="loggedOut" style="display: flex">
                     <a class="btn" href="#">Log in</a>
                 </span>
                 
-                <span id="loggedin" style="display: none;">
+                <span id="loggedIn" style="display: none;">
                     <a class="btn" href="#">Upload</a>
                     
                     <a class="btn" href="prefrences.html">
@@ -57,5 +57,11 @@
         
         <script src="js/global.js"></script>
         <script src="js/prefrences.js"></script>
+        <script>
+        if(loggedIn){
+            document.getElementById("loggedOut").style.display = "none";
+            document.getElementById("loggedIn").style.display = "flex";
+        }
+        </script>
     </body>
 </html>
