@@ -1,5 +1,12 @@
 loadTheme();
 
+var sess = "test";
+var loggedIn = false;
+
+if(sess !== null){
+    loggedIn = true;
+}
+
 function loadTheme() {
 	try {
 		var theme = localStorage.getItem('theme');

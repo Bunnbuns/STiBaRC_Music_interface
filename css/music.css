@@ -1,6 +1,10 @@
 /*
 ### music
 */
+#new-music{
+    display: block;
+    margin-bottom: 1.5rem;
+}
 .music-player{
     background: var(--post);
     color: var(--mainblobwithlisttext);
