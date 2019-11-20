@@ -12,18 +12,12 @@
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    background: var(--navbutton) url('../STiBaRC-logo.png') no-repeat;
+    background: var(--navbutton) url('../fav.png') no-repeat;
     background-size: cover;
     background-position: 50% 50%;
     text-decoration: none;
     width: 80px;
     height: 80px;
-}
-.ar1{
-    background-image: url('../STiBaRC-logo.png') !important;
-}
-.ar2{
-    background-image: url('../social_stibarc.png') !important;
 }
 .light-outline{
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
