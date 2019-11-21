@@ -3,7 +3,6 @@ loadTheme();
 window.onload = function(){
     if(loggedIn){
         getUserInfo();
-        updateNavDropdownContent();
     }
 }
 if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
@@ -75,11 +74,14 @@ function getUserInfo(){
         var xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             localStorage.setItem("username",  xhttp.responseText);
+            console.log('Username ls is set.');
+            updateNavDropdownContent();
             getUserPfp();
         };
         xhttp.open('GET', 'https://api.stibarc.com/v2/getusername.sjs?sess='+localStorage.getItem("sess"), true);
         xhttp.send();
     }else{
+        updateNavDropdownContent();
         getUserPfp();
     }
 }
@@ -119,15 +121,26 @@ function loadTheme() {
 
 // logout //
 function logout() {
-	//var cookie = toJSON(document.cookie);
-	var sess = window.localStorage.getItem("sess");
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("GET", "https://api.stibarc.com/logout.sjs?sess=" + sess, false);
-	xmlHttp.send(null);
-	window.localStorage.removeItem("sess");
-	window.localStorage.removeItem("username");
-	window.localStorage.removeItem("pfp");
-	location.href = "index.html";
+	console.log('Loging out... (Sending request to kill session)');
+    window.localStorage.removeItem("username");
+    window.localStorage.removeItem("pfp");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var tmp = xhttp.responseText;
+        console.log('Loging out... (Request sent)');
+        if(tmp == 'gud\n'){
+            // logout went ok
+            window.localStorage.removeItem("sess");
+            console.log('Loging out complete: '+tmp);
+            location.href = "index.html";
+        }else{
+            // logout request sent but might no be ok
+            console.log('Logout failed (Request error: '+tmp+')');
+            alert('Logout may have failed (Request error: '+tmp+')');
+        }
+    };
+    xhttp.open("GET", "https://api.stibarc.com/logout.sjs?sess="+window.localStorage.getItem("sess"), true);
+    xhttp.send();
 }
 
 // get url path from hash //
