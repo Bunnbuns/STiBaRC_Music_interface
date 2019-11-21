@@ -27,6 +27,7 @@ hr{
 ### navbar
 */
 .nav{
+    display: -webkit-flex;
     display: flex;
     position: fixed !important;
     top: 0;
@@ -41,12 +42,13 @@ hr{
     z-index: 1;
 }
 .nav .brand{
+    display: -webkit-flex;
+    display: flex;
     -webkit-transition: background-color .2s ease-in-out;
     -o-transition: background-color .2s ease-in-out;
     transition: background-color .2s ease-in-out;
     padding: 8px 1rem;
     margin: 0 .5rem 0 8px;
-    display: flex;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -64,6 +66,7 @@ hr{
     vertical-align: middle;
 }
 .nav a{
+    display: -webkit-flex;
     display: flex;
     align-items: center;
     color: var(--onlitext);
@@ -84,11 +87,13 @@ hr{
     background-color: var(--navbutton);
 }
 .nav .left{
+    display: -webkit-flex;
     display: flex;
     flex-grow: 1;
     overflow: hidden;
 }
 .nav .right{
+    display: -webkit-flex;
     display: flex;
     margin-right: 8px;
 }
@@ -96,12 +101,15 @@ hr{
 ### dropdown
 */
 #loggedout{
+    display: -webkit-flex;
     display: flex;
 }
 #loggedin{
+    display: -webkit-flex;
     display: flex;
 }
 .nav .pfp{
+    display: -webkit-flex;
     display: flex;
     min-width: 50px;
     min-height: 50px;

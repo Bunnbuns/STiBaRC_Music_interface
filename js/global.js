@@ -1,9 +1,6 @@
 loadTheme();
 
-var username = null;
-
 window.onload = function(){
-    var username = localStorage.getItem("username");
     if(loggedIn){
         getUserInfo();
     }
@@ -44,14 +41,14 @@ function loginPopUp() {
 
 // get profile info //
 function getUserInfo(){
-    if(username == null){
+    if(localStorage.getItem("username") == null){
+        console.log('Username ls not set, requesting it.');
         var xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
             localStorage.setItem("username",  xhttp.responseText);
-            username = localStorage.getItem("username");
             getUserPfp();
         };
-        xhttp.open('GET', 'https://api.stibarc.com/v2/getusername.sjs?sess='+sess, true);
+        xhttp.open('GET', 'https://api.stibarc.com/v2/getusername.sjs?sess='+localStorage.getItem("sess"), true);
         xhttp.send();
     }else{
         getUserPfp();
@@ -65,7 +62,7 @@ function getUserPfp(){
         localStorage.setItem('pfp', userPfp);
         document.getElementById('navpfp').src = localStorage.getItem('pfp');
     };
-    xhttp.open('GET', 'https://api.stibarc.com/v2/getuserpfp.sjs?id='+username, true);
+    xhttp.open('GET', 'https://api.stibarc.com/v2/getuserpfp.sjs?id='+localStorage.getItem("username"), true);
     xhttp.send();
 }
 
