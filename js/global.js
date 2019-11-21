@@ -88,6 +88,19 @@ function loadTheme() {
 	}
 }
 
+// logout //
+function logout() {
+	//var cookie = toJSON(document.cookie);
+	var sess = window.localStorage.getItem("sess");
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", "https://api.stibarc.com/logout.sjs?sess=" + sess, false);
+	xmlHttp.send(null);
+	window.localStorage.removeItem("sess");
+	window.localStorage.removeItem("username");
+	window.localStorage.removeItem("pfp");
+	location.href = "index.html";
+}
+
 // get url params //
 function getAllUrlParams(url) {
 	var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
