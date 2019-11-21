@@ -3,6 +3,7 @@ loadTheme();
 window.onload = function(){
     if(loggedIn){
         getUserInfo();
+        updateNavDropdownContent();
     }
 }
 if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
@@ -18,6 +19,34 @@ if(loggedIn){
     document.getElementById("loggedOut").style.display = "none";
     document.getElementById("loggedIn").style.display = "flex";
 }
+
+// nav dropdown //
+function updateNavDropdownContent(){
+    if(loggedIn){
+        document.getElementById("loggedInAs").innerHTML = localStorage.getItem("username");
+        document.getElementById("loggedInAs").title = 'Logged in as '+localStorage.getItem("username");
+    }
+}
+// nav dropdown display //
+var pfpNavDropdown = document.getElementById('pfpNavDropdown');
+var navDropdown = document.getElementById('navDropdown');
+document.addEventListener("click", function(event) {
+    var isClickInside = pfpNavDropdown.contains(event.target);
+    var navDropdownContent = navDropdown.contains(event.target);
+    
+    if(document.getElementById("navDropdown").style.display == "none" || navDropdownContent){
+        document.getElementById('navDropdown').style.display = "block";
+        document.getElementById('pfpNavDropdown').classList.add("active");
+    }else{
+        document.getElementById("navDropdown").style.display = "none";
+        document.getElementById("pfpNavDropdown").classList.remove("active");
+    }
+    if (!isClickInside && !navDropdownContent) {
+        //the click was outside the nav dropdown
+        document.getElementById("navDropdown").style.display = "none";
+        document.getElementById("pfpNavDropdown").classList.remove("active");
+    }
+});
 
 // login popup //
 var popuped = false;
@@ -101,6 +130,11 @@ function logout() {
 	location.href = "index.html";
 }
 
+// get url path from hash //
+function getUrlPathHash(){
+    var afterHash = window.location.hash.substr(1);
+    return afterHash;
+}
 // get url params //
 function getAllUrlParams(url) {
 	var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
