@@ -4,15 +4,17 @@ var username = null;
 
 window.onload = function(){
     var username = localStorage.getItem("username");
-    getUserInfo();
+    if(loggedIn){
+        getUserInfo();
+    }
 }
-if(localStorage.getItem('pfp') !== null){
+if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
     document.getElementById('navpfp').src = localStorage.getItem('pfp');
 }
 
 var sess = localStorage.getItem("sess");
 var loggedIn = false;
-if(sess !== null){
+if(sess !== null && sess !== ""){
     loggedIn = true;
 }
 if(loggedIn){
