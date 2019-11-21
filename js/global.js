@@ -1,7 +1,10 @@
 loadTheme();
+getUserInfo();
 
 var sess = localStorage.getItem("sess");
 var loggedIn = false;
+
+var username = localStorage.getItem("username");
 
 if(sess !== null){
     loggedIn = true;
@@ -9,6 +12,56 @@ if(sess !== null){
 if(loggedIn){
     document.getElementById("loggedOut").style.display = "none";
     document.getElementById("loggedIn").style.display = "flex";
+}
+// login popup //
+var popuped = false;
+
+function loginPopUp() {
+    if (!popuped) {
+        popuped = true;
+        var loginpopup = window.open("https://stibarc.com/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
+        window.addEventListener("message", function(evt) {
+            if (evt.data != "Cancelled") {
+                localStorage.sess = evt.data;
+                console.log(evt.data);
+                loginpopup.close();
+                location.href = "index.html";
+            }else {
+                loginpopup.close();
+                popuped = false;
+            }
+        });
+    }
+}
+// / login popup //
+// get profile info //
+function getUserInfo(){
+    if(username !== null){
+        getUserPfp();
+    }else{
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                localStorage.setItem("username",  this.responseText);
+                username = localStorage.getItem("username");
+                getUserPfp();
+            }
+        };
+        xhttp.open('GET', 'https://api.stibarc.com/getusername.sjs?sess='+localStorage.getItem("sess"), true);
+        xhttp.send();
+    }
+}
+function getUserPfp(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmp = JSON.parse(this.responseText);
+            console.log(tmp);
+            //document.getElementById('navpfp').src = tmp['pfp'];
+        }
+    };
+    xhttp.open('GET', 'https://api.stibarc.com/v2/getuser.sjs?id='+username, true);
+    xhttp.send();
 }
 function loadTheme() {
 	try {
