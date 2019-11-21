@@ -42,5 +42,6 @@ function logout() {
 	xmlHttp.send(null);
 	window.localStorage.removeItem("sess");
 	window.localStorage.removeItem("username");
+	window.localStorage.removeItem("pfp");
 	location.href = "index.html";
 }
