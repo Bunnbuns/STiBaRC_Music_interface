@@ -1,12 +1,15 @@
 loadTheme();
 
-var sess = "test";
+var sess = localStorage.getItem("sess");
 var loggedIn = false;
 
 if(sess !== null){
     loggedIn = true;
 }
-
+if(loggedIn){
+    document.getElementById("loggedOut").style.display = "none";
+    document.getElementById("loggedIn").style.display = "flex";
+}
 function loadTheme() {
 	try {
 		var theme = localStorage.getItem('theme');

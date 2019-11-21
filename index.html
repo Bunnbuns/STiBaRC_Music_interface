@@ -27,7 +27,7 @@
             <div class="right">
                 
                 <span id="loggedOut" style="display: flex">
-                    <a class="btn" href="#">Log in</a>
+                    <a class="btn" href="login.html">Log in</a>
                 </span>
                 
                 <span id="loggedIn" style="display: none;">
@@ -48,9 +48,8 @@
                 <h1>Welcome to the best music.</h1>
                 <br>
                 <a class="button" href="#">Sign up</a>
-                <a class="button outline" href="prefrences.html">Log in</a>
-                <br>
-            </div>
+                <a class="button outline" href="login.html">Log in</a>
+            </div><!-- / hero -->
         
             <h2>New Music</h2>
             
@@ -172,15 +171,14 @@
             </div><!-- / top tracks -->
             
             <br><br><br><br>
-        </div>
+            
+        </div><!-- / page -->
         
         <script src="js/global.js"></script>
         <script>
-        if(loggedIn){
-            document.getElementById("loggedOut").style.display = "none";
-            document.getElementById("loggedOutHero").style.display = "none";
-            document.getElementById("loggedIn").style.display = "flex";
-        }
+            if(loggedIn){
+                document.getElementById("loggedOutHero").style.display = "none";
+            }
         </script>
     </body>
 </html>

@@ -30,3 +30,9 @@ document.getElementById("submit").onclick = function(evt) {
     }
     document.location = "index.html";
 }
+
+document.getElementById("logout").onclick = function(evt){
+    window.localStorage.removeItem("sess");
+	//window.localStorage.removeItem("username");
+    window.location = "index.html";
+}
