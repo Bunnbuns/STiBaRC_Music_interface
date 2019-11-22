@@ -7,30 +7,60 @@
     },
       "items":{
           "tracks":{
-              "1":{
+              "0":{
                   "url":"track/default",
                   "name":"Default Song",
                   "artists":{
-                      "name":"Default Artist"
+                      "0":{
+                          "name":"STiBaRC Music",
+                          "url":"artist/stibarc"
+                      }
                   },
                   "file":"default.mp3",
                   "album":{
                       "url":"album/default",
                       "name":"Default Album",
-                      "image":"default.jpg"
+                      "image":"default.png"
                   }
               },
-              "2":{
+              "1":{
                   "url":"track/acoolsong",
                   "name":"A cool song",
                   "artists":{
-                      "name":"Bunnbuns"
+                      "0":{
+                          "name":"Bunnbuns",
+                          "url":"artist/bunnbuns"
+                      }
                   },
                   "file":"weirdalbum.mp3",
                   "album":{
                       "url":"album/weirdalbum",
                       "name":"Weird",
-                      "image":"weirdalbum.jpg"
+                      "image":"temp-music/weirdalbum.png"
+                  }
+              },
+              "3":{
+                  "url":"track/thetimeisnow",
+                  "name":"The Time is Now",
+                  "artists":{
+                      "0":{
+                          "name":"John Cena",
+                          "url":"artist/johncena"
+                      },
+                      "1":{
+                          "name":"Tha Trademarc",
+                          "url":"artist/thatrademarc"
+                      },
+                      "2":{
+                          "name":"WWE",
+                          "url":"artist/wwe420"
+                      }
+                  },
+                  "file":"wwe.mp3",
+                  "album":{
+                      "url":"album/wweyoucantseeme",
+                      "name":"WWE: You Can't See Me",
+                      "image":"default.png"
                   }
               }
           }
