@@ -38,6 +38,12 @@
 .play-button i:hover{
     background-color: var(--navbutton);
 }
+.song.playing .play-button{
+    display: block;
+}
+.song.playing .play-button i{
+    
+}
 .music-player:hover .play-button{
     display: inline-block;
 }

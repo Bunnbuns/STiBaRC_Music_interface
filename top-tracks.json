@@ -1,12 +1,12 @@
 {
-    "name":"New Music",
-    "description":"The latest music",
+    "name":"Top Tracks",
+    "description":"The most played tracks",
     "owner":{
         "user":"STiBaRC Music",
         "url":"user/stibarc"
     },
-    "url":"playlist/newmusic",
-    "id":"newmusic",
+    "url":"playlist/toptracks",
+    "id":"toptracks",
       "items":{
           "tracks":{
               "0":{
@@ -27,23 +27,6 @@
                   }
               },
               "1":{
-                  "url":"track/acoolsong",
-                  "name":"A cool song",
-                  "id":"acoolsong",
-                  "artists":{
-                      "0":{
-                          "name":"Bunnbuns",
-                          "url":"artist/bunnbuns"
-                      }
-                  },
-                  "file":"weirdalbum.mp3",
-                  "album":{
-                      "url":"album/weirdalbum",
-                      "name":"Weird",
-                      "image":"temp-music/weirdalbum.png"
-                  }
-              },
-              "3":{
                   "url":"track/thetimeisnow",
                   "name":"The Time is Now",
                   "id":"thetimeisnow",
@@ -66,6 +49,23 @@
                       "url":"album/wweyoucantseeme",
                       "name":"WWE: You Can't See Me",
                       "image":"temp-music/thetimeisnow.jpg"
+                  }
+              },
+              "2":{
+                  "url":"track/acoolsong",
+                  "name":"A cool song",
+                  "id":"acoolsong",
+                  "artists":{
+                      "0":{
+                          "name":"Bunnbuns",
+                          "url":"artist/bunnbuns"
+                      }
+                  },
+                  "file":"weirdalbum.mp3",
+                  "album":{
+                      "url":"album/weirdalbum",
+                      "name":"Weird",
+                      "image":"temp-music/weirdalbum.png"
                   }
               }
           }

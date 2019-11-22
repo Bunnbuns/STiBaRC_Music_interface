@@ -4,7 +4,7 @@ window.onload = function(){
     if(loggedIn){
         getUserInfo();
     }
-    getNewMusic();
+    getFrontMusic();
 }
 if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
     document.getElementById('navpfp').src = localStorage.getItem('pfp');
