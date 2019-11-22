@@ -20,7 +20,7 @@
                   "album":{
                       "url":"album/default",
                       "name":"Default Album",
-                      "image":"default.png"
+                      "image":"temp-music/default.png"
                   }
               },
               "1":{
@@ -56,11 +56,11 @@
                           "url":"artist/wwe420"
                       }
                   },
-                  "file":"wwe.mp3",
+                  "file":"thetimeisnow.mp3",
                   "album":{
                       "url":"album/wweyoucantseeme",
                       "name":"WWE: You Can't See Me",
-                      "image":"default.png"
+                      "image":"temp-music/thetimeisnow.jpg"
                   }
               }
           }
