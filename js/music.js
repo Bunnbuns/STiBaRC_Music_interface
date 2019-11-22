@@ -14,3 +14,14 @@ document.getElementById('wwe1').onclick = function(evt) {
         sound.pause(id1);
     }
 }
+
+// new music //
+document.getElementById('new-music').innerHTML = "";
+function getNewMusic(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var tmp = JSON.parse(xhttp.responseText);
+    };
+    xhttp.open('GET', 'new-music.json', true);
+    xhttp.send();
+}

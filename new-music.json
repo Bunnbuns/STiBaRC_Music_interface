@@ -1,0 +1,38 @@
+{
+    "name":"New Music",
+    "description":"The latest music",
+    "owner":{
+        "user":"STiBaRC Music",
+        "url":"user/stibarc"
+    },
+      "items":{
+          "tracks":{
+              "1":{
+                  "url":"track/default",
+                  "name":"Default Song",
+                  "artists":{
+                      "name":"Default Artist"
+                  },
+                  "file":"default.mp3",
+                  "album":{
+                      "url":"album/default",
+                      "name":"Default Album",
+                      "image":"default.jpg"
+                  }
+              },
+              "2":{
+                  "url":"track/acoolsong",
+                  "name":"A cool song",
+                  "artists":{
+                      "name":"Bunnbuns"
+                  },
+                  "file":"weirdalbum.mp3",
+                  "album":{
+                      "url":"album/weirdalbum",
+                      "name":"Weird",
+                      "image":"weirdalbum.jpg"
+                  }
+              }
+          }
+      }
+}
