@@ -9,6 +9,7 @@
           "tracks":{
               "0":{
                   "url":"track/default",
+                  "id":"default",
                   "name":"Default Song",
                   "artists":{
                       "0":{
@@ -26,6 +27,7 @@
               "1":{
                   "url":"track/acoolsong",
                   "name":"A cool song",
+                  "id":"acoolsong",
                   "artists":{
                       "0":{
                           "name":"Bunnbuns",
@@ -42,6 +44,7 @@
               "3":{
                   "url":"track/thetimeisnow",
                   "name":"The Time is Now",
+                  "id":"thetimeisnow",
                   "artists":{
                       "0":{
                           "name":"John Cena",

@@ -18,6 +18,9 @@ if(sess !== null && sess !== ""){
 if(loggedIn){
     document.getElementById("loggedOut").style.display = "none";
     document.getElementById("loggedIn").style.display = "flex";
+}else{
+    document.getElementById("loggedOut").style.display = "flex";
+    document.getElementById("loggedIn").style.display = "none";
 }
 
 // nav dropdown //
