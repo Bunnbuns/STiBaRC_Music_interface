@@ -11,6 +11,7 @@
     box-shadow: 0px 1px 5px rgba(77, 77, 77, 0.32);
     border-radius: 4px;
     margin: 10px 0;
+    display: flex;
 }
 .music-player .artwork{
     position: relative;
@@ -66,19 +67,73 @@
     background-color: var(--button2);
 }
 .music-player .info{
-    display: inline-block;
+    flex: 100 1 0%;
+    min-width: 0px;
+    display: block;
+    max-width: 100%;
     vertical-align: middle;
-    margin: 1rem .5rem;
+    margin: 1rem .75rem 1rem .75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .music-player .info .title{
     color: var(--mainblobwithlisttext);
     font-weight: bold;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.music-player .line-separator{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+.music-player .bottom-info{
+    color: var(--mainblobwithlisttext);
+    font-size: 90%;
+    display: flex;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .music-player .info .artist{
     color: var(--mainblobwithlisttext);
-    font-size: 90%;
-    display: block;
-    margin-top: 5px;
     cursor: pointer;
+    max-width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+.music-player .info .album {
+    color: var(--mainblobwithlisttext);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+/*
+### bottom player
+*/
+.bottom-player{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    padding:.75rem .75rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--header);
+    color: var(--onlitext);
+    box-shadow: 0px 2px 12px 0px rgba(77, 77, 77, 0.32);
+}
+.bottom-player .album-image{
+    width:65px;
+    height: 65px;
+    padding: 10px;
+    background: #aaa;
 }

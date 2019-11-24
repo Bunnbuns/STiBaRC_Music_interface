@@ -45,7 +45,7 @@ function getFrontMusic(){
                 }
                 artists += tmp.items.tracks[i].artists[i2].name;
             }
-            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="artist">'+artists+'<span class="line-separator"> • </span><span>'+tmp.items.tracks[i].album.name+'</span></div> </span> </div>';
+            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
         }
         newMusic.innerHTML = output;
         
@@ -66,7 +66,7 @@ function getFrontMusic(){
                 }
                 artists += tmp.items.tracks[i].artists[i2].name;
             }
-            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="artist">'+artists+'<span class="line-separator"> • </span><span>'+tmp.items.tracks[i].album.name+'</span></div> </span> </div>';
+            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
         }
         topTracks.innerHTML = output;
         
