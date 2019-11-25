@@ -26,11 +26,11 @@ function p(id){
 
 var test1 = null;
 // new music //
-var newMusic = document.getElementById('new-music');
-var topTracks = document.getElementById('top-tracks');
-newMusic.innerHTML = "";
-topTracks.innerHTML = "";
 function getFrontMusic(){
+    var newMusic = document.getElementById('new-music');
+    var topTracks = document.getElementById('top-tracks');
+    newMusic.innerHTML = "";
+    topTracks.innerHTML = "";
     // new music //
     var newMusicReq = new XMLHttpRequest();
     newMusicReq.onload = function() {

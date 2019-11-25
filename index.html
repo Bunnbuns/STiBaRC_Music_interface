@@ -15,13 +15,13 @@
         
         <div class="nav">
             
-            <a href="#" class="brand">
+            <a href="#" onclick="nav('/')" class="brand">
                 <img src="logo-100x.png">
             </a>
             <div class="left">
                 
-                <a class="btn active" href="#"><i class="material-icons vam"> home </i> Home</a>
-                <a class="btn" href="#/library"><i class="material-icons"> library_music </i> Library</a>
+                <a class="btn active" href="#" onclick="nav('/')"><i class="material-icons vam"> home </i> Home</a>
+                <a class="btn" href="#/library" onclick="nav('/library')"><i class="material-icons"> library_music </i> Library</a>
                 
             </div>
             <div class="right">
@@ -31,7 +31,7 @@
                 </span>
                 
                 <span id="loggedIn" style="display: none;">
-                    <a class="btn" href="#/upload">Upload</a>
+                    <a class="btn" href="#/upload" onclick="nav('/upload')">Upload</a>
                     
                     <a class="btn" id="pfpNavDropdown">
                         <img id="navpfp" class="pfp" src="STiBaRC-logo.png">
@@ -61,132 +61,13 @@
                 <a class="button outline" onclick="loginPopUp()">Log in</a>
             </div><!-- / hero -->
         
-            <h2>New Music</h2>
-            
-            <div id="new-music">
-                
-<!--
-                <div class="music-player song">
-                    <div class="artwork light-outline left-br" style="background-image: url('STiBaRC-logo.png')">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Song name</span>
-                        <div class="artist">-Verso-</div>
-                    </span>
-                </div>
-                
-                <div class="music-player song">
-                    <div class="artwork light-outline left-br" style="">
-                        <span class="play-button" id="wwe1">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Default Artwork</span>
-                        <div class="artist">Default</div>
-                    </span>
-                </div>
-                
-                <div class="music-player album">
-                    <div class="artwork light-outline left-br" style="background-image: url('https://i1.sndcdn.com/artworks-000165565637-mzmr0l-t200x200.jpg')">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Stay For A While</span>
-                        <div class="artist">Virtual Riot</div>
-                    </span>
-                </div>
-                
-                <div class="music-player album">
-                    <div class="artwork light-outline left-br" style="background-image: url('https://i1.sndcdn.com/artworks-000603421555-674rpe-t200x200.jpg')">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">indie dance</span>
-                        <div class="artist">pabalt</div>
-                    </span>
-                </div>
-                
-                <div class="music-player album">
-                    <div class="artwork light-outline left-br" style="background-image: url('https://i1.sndcdn.com/artworks-000148511707-pfyqu1-t200x200.jpg')">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Untitiled</span>
-                        <div class="artist">Bunnbuns</div>
-                    </span>
-                </div>
--->
-                
-            </div><!-- / new music -->
-            
-            <h2>Top Tracks</h2>
-            
-            <div id="top-tracks">
-                
-                <div class="music-player album">
-                    <div class="artwork light-outline left-br" style="background-image: url('https://i1.sndcdn.com/artworks-000603421555-674rpe-t200x200.jpg')">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">indie dance</span>
-                        <div class="artist">pabalt</div>
-                    </span>
-                </div>
-                
-<!--
-                <div class="music-player song">
-                    <div class="artwork light-outline left-br" style="">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Default Artwork</span>
-                        <div class="artist">Default</div>
-                    </span>
-                </div>
-                
-                <div class="music-player song">
-                    <div class="artwork light-outline left-br" style="background-image: url(https://i1.sndcdn.com/artworks-000235144376-gc8a50-t200x200.jpg);">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Ascent</span>
-                        <div class="artist">Faux Tales</div>
-                    </span>
-                </div>
-                <div class="music-player song">
-                    <div class="artwork light-outline left-br" style="background-image: url(https://i1.sndcdn.com/artworks-000362869188-ny45b6-t200x200.jpg);">
-                        <span class="play-button">
-                            <i class="material-icons"> play_arrow </i>
-                        </span>
-                    </div>
-                    <span class="info">
-                        <span class="title">Sad Waluigi Hours.</span>
-                        <div class="artist">Fireflew</div>
-                    </span>
-                </div>
--->
-                
-            </div><!-- / top tracks -->
-            
-            <div style="margin:6rem 0;"></div>
+        <div id="content">
+            `
+        </div>
             
         </div><!-- / page -->
+        
+        <div style="margin:6.5rem 0;"></div>
         
         <div class="bottom-player">
             <div class="album-image"></div>

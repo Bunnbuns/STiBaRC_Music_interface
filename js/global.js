@@ -1,10 +1,10 @@
 loadTheme();
+nav();
 
 window.onload = function(){
     if(loggedIn){
         getUserInfo();
     }
-    getFrontMusic();
 }
 if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
     document.getElementById('navpfp').src = localStorage.getItem('pfp');
@@ -21,6 +21,34 @@ if(loggedIn){
 }else{
     document.getElementById("loggedOut").style.display = "flex";
     document.getElementById("loggedIn").style.display = "none";
+}
+
+// navigation //
+function nav(pathParam){
+    var path = null;
+    if(pathParam == null){
+        var path = getUrlPathHash();
+    }else{
+        path = pathParam;
+    }
+    var content = document.getElementById("content");
+    content.innerHTML = "";
+    if(path == "/" || path == ""){
+        path = 'home';
+    }
+    var xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            if(xhttp.status == 404){
+                content.innerHTML = '<h2>404</h2><p>Page '+path+' not found</p>';
+            }else{
+                content.innerHTML = xhttp.responseText;
+                if(path == "home"){
+                    getFrontMusic();
+                }
+            }
+        };
+    xhttp.open('GET', '/pages/'+path+".html");
+    xhttp.send();
 }
 
 // nav dropdown //

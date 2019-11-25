@@ -157,7 +157,7 @@ hr{
 */
 .page{
     margin:6.25rem 8px 15px 8px;
-    min-height: 74vh;
+    min-height: 72vh;
     background-color: var(--mainblobwithlist);
     color: var(--mainblobwithlisttext);
     word-wrap: break-word;
