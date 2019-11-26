@@ -7,16 +7,19 @@
 var playing = null;
 function p(id){
     if(playing == id){
+        // pause song //
         playing = null;
         console.log("Paused "+id);
         document.getElementById(id).classList.remove('playing');
         document.getElementById('plyBtn-'+id).innerHTML = "play_arrow";
     }else{
         if(playing !== null){
+            // stop song //
             console.log("Stoped "+playing);
             document.getElementById(playing).classList.remove('playing');
             document.getElementById('plyBtn-'+playing).innerHTML = "play_arrow";
         }
+        // play song //
         playing = id;
         console.log("Playing "+id);
         document.getElementById(id).classList.add('playing');

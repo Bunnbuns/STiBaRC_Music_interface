@@ -47,7 +47,7 @@ function nav(pathParam){
                 }
             }
         };
-    xhttp.open('GET', '/pages/'+path+".html");
+    xhttp.open('GET', 'pages/'+path+".html");
     xhttp.send();
 }
 
