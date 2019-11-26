@@ -47,6 +47,7 @@
                 <div id="loggedInAs" title="Logged in as anon">anon</div>
             </div>
             <div>
+                <a href="#/prefrences" onclick="nav('/prefrences')">Prefrences</a><br>
                 <a href="#" onclick="logout()">Logout</a>
             </div>
 
@@ -67,7 +68,7 @@
             
         </div><!-- / page -->
         
-        <div style="margin:6.5rem 0;"></div>
+        <div style="margin:7rem 0;"></div>
         
         <div class="bottom-player">
             <div class="album-image"></div>
@@ -76,6 +77,7 @@
         <script src="js/global.js"></script>
         <script src="js/howler/2.1.2/dist/howler.js"></script>
         <script src="js/music.js"></script>
+        <script src="js/prefrences.js"></script>
         <script>
             if(loggedIn){
                 document.getElementById("loggedOutHero").style.display = "none";

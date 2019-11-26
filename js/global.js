@@ -34,7 +34,7 @@ function nav(pathParam){
     var content = document.getElementById("content");
     content.innerHTML = "";
     if(path == "/" || path == ""){
-        path = 'home';
+        path = '/home';
     }
     var xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
@@ -42,8 +42,11 @@ function nav(pathParam){
                 content.innerHTML = '<h2>404</h2><p>Page '+path+' not found</p>';
             }else{
                 content.innerHTML = xhttp.responseText;
-                if(path == "home"){
+                if(path == "/home"){
                     getFrontMusic();
+                }
+                if(path == "/prefrences"){
+                    prefrences();
                 }
             }
         };
@@ -105,7 +108,7 @@ function getUserInfo(){
         console.log('Username ls not set, requesting it.');
         var xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            localStorage.setItem("username",  xhttp.responseText);
+            localStorage.setItem("username",  xhttp.responseText.replace(/(\r\n|\n|\r)/gm,""));
             console.log('Username ls is set.');
             updateNavDropdownContent();
             getUserPfp();
