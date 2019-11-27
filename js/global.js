@@ -81,38 +81,51 @@ function hideAllPages(){
 	for (var i = 0; i < allPages.length; i++) {
 	  allPages[i].style.display = "none";
 	}
+    const allNavBtns = document.querySelectorAll(".nav .btn");
+	for (var i = 0; i < allNavBtns.length; i++) {
+	  allNavBtns[i].classList.remove("active");
+	}
 }
 function go(){
     var path = getAllUrlParams().page;
     if(path == null || path == "" || path == "/"){
         home(true);
     }else if(path == "/library"){
-         library();
+         library(true);
     }else if(path == "/prefrences"){
         //
     }else{
-        pageNotFound(path);
+        pageNotFound(path, true);
     }
 }
-function pageNotFound(path){
-    window.history.pushState(1, "404 Not Found+ "+path, "?page="+path);
+function pageNotFound(path, load){
     hideAllPages();
     $("p-PageNotFound").style.display = "block";
     // funtions for this page
     $("not-found-page").innerHTML = path;
 }
 function home(load){
-    if(load){ getFrontMusic(); }
-    window.history.pushState(1, "Home", "?page=/");
     hideAllPages();
+    $("a-home").classList.add("active");
     $("p-Home").style.display = "block";
     //funtions for this page
+    if(load){
+        
+    }else{
+        window.history.pushState(1, "Home", "?page=/");
+    }
+    getFrontMusic();
 }
-function library(){
-    window.history.pushState(1, "Library", "?page=/library");
+function library(load){
     hideAllPages();
+    $("a-library").classList.add("active");
     $("p-Library").style.display = "block";
     //funtions for this page
+    if(load){
+        
+    }else{
+        window.history.pushState(1, "Library", "?page=/library");
+    }
 }
 
 // nav dropdown //
