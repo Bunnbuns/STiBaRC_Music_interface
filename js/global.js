@@ -85,7 +85,7 @@ function hideAllPages(){
 function go(){
     var path = getAllUrlParams().page;
     if(path == null || path == "" || path == "/"){
-        home();
+        home(true);
     }else if(path == "/library"){
          library();
     }else if(path == "/prefrences"){
@@ -95,18 +95,21 @@ function go(){
     }
 }
 function pageNotFound(path){
+    window.history.pushState(1, "404 Not Found+ "+path, "?page="+path);
     hideAllPages();
     $("p-PageNotFound").style.display = "block";
     // funtions for this page
     $("not-found-page").innerHTML = path;
 }
-function home(){
+function home(load){
+    if(load){ getFrontMusic(); }
+    window.history.pushState(1, "Home", "?page=/");
     hideAllPages();
     $("p-Home").style.display = "block";
     //funtions for this page
-    getFrontMusic();
 }
 function library(){
+    window.history.pushState(1, "Library", "?page=/library");
     hideAllPages();
     $("p-Library").style.display = "block";
     //funtions for this page
