@@ -27,6 +27,18 @@ if(loggedIn){
     $("loggedIn").style.display = "none";
 }
 
+
+// update player button //
+var playing = null;
+function updatePlayerBtn(){
+    if(playing == null){
+        
+    }else{
+        $(playing).classList.add('playing');
+        $('plyBtn-'+playing).innerHTML = "pause";
+    }
+}
+
 // front music //
 function getFrontMusic(){
     var newMusic = $('new-music');
@@ -49,6 +61,7 @@ function getFrontMusic(){
             output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
         }
         newMusic.innerHTML = output;
+        updatePlayerBtn();
         
     };
     newMusicReq.open('GET', 'new-music.json', true);
@@ -69,6 +82,7 @@ function getFrontMusic(){
             output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
         }
         topTracks.innerHTML = output;
+        updatePlayerBtn();
         
     };
     topTracksReq.open('GET', 'top-tracks.json', true);
@@ -109,12 +123,12 @@ function home(load){
     $("a-home").classList.add("active");
     $("p-Home").style.display = "block";
     //funtions for this page
+    getFrontMusic();
     if(load){
-        
+
     }else{
         window.history.pushState(1, "Home", "?page=/");
     }
-    getFrontMusic();
 }
 function library(load){
     hideAllPages();
