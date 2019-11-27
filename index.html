@@ -15,13 +15,13 @@
         
         <div class="nav">
             
-            <a href="#" onclick="nav('/')" class="brand">
+            <a href="#" onclick="home()" class="brand">
                 <img src="logo-100x.png">
             </a>
             <div class="left">
                 
-                <a class="btn active" href="#" onclick="nav('/')"><i class="material-icons vam"> home </i> Home</a>
-                <a class="btn" href="#/library" onclick="nav('/library')"><i class="material-icons"> library_music </i> Library</a>
+                <a id="nav-a-home" class="btn active" href="#" onclick="home()"><i class="material-icons vam"> home </i> Home</a>
+                <a id="nav-a-library" class="btn" href="#" onclick="library()"><i class="material-icons"> library_music </i> Library</a>
                 
             </div>
             <div class="right">
@@ -31,7 +31,7 @@
                 </span>
                 
                 <span id="loggedIn" style="display: none;">
-                    <a class="btn" href="#/upload" onclick="nav('/upload')">Upload</a>
+                    <a class="btn" href="#">Upload</a>
                     
                     <a class="btn" id="pfpNavDropdown">
                         <img id="navpfp" class="pfp" src="STiBaRC-logo.png">
@@ -47,7 +47,7 @@
                 <div id="loggedInAs" title="Logged in as anon">anon</div>
             </div>
             <div>
-                <a href="#/prefrences" onclick="nav('/prefrences')">Prefrences</a><br>
+                <a href="#/prefrences">Prefrences</a><br>
                 <a href="#" onclick="logout()">Logout</a>
             </div>
 
@@ -62,9 +62,55 @@
                 <a class="button outline" onclick="loginPopUp()">Log in</a>
             </div><!-- / hero -->
         
-        <div id="content">
-            `
-        </div>
+            <div class="p-page" id="p-PageNotFound" style="display: none"><!-- 404 -->
+                
+                <h2>404 Not Found</h2>
+                <p>Page <span id="not-found-page"></span> not found.</p>
+                
+            </div><!-- / 404 -->
+            
+            <div class="p-page" id="p-Home" style="display: none;"><!-- Home -->
+
+                <h2>New Music</h2>
+
+                <div id="new-music">
+
+                </div><!-- / new music -->
+
+                <h2>Top Tracks</h2>
+
+                <div id="top-tracks">
+
+                </div><!-- / top tracks -->
+
+            </div><!-- / Home -->
+
+            <div class="p-page" id="p-Library" style="display: none;"><!-- Library -->
+
+                <h2>Library</h2>
+
+                <h3>My Music</h3>
+                
+            </div><!-- / Library -->
+            
+            <div class="p-page" id="p-Prefrences" style="display: none;"><!-- Prefrences -->
+
+                <h2>Prefrences</h2>
+
+                <h3>Theme</h3>
+                <select id="themechng" class="b">
+                    <option value="auto">Auto</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="custom">Custom theme</option>
+                </select>
+                <input id="themecust" type="text" style="display:none"><br/>
+                <br><button class="button onli" id="submit">Update</button><br><br>
+
+                <h3>More</h3>
+                <button class="button onli" id="logout">Logout</button>
+                
+            </div><!-- / Prefrences -->
             
         </div><!-- / page -->
         
@@ -79,10 +125,13 @@
         <script src="js/music.js"></script>
         <script src="js/prefrences.js"></script>
         <script>
+            function $(id) {
+	           return document.getElementById(id); //took from https://roomies.gq
+            }
             if(loggedIn){
-                document.getElementById("loggedOutHero").style.display = "none";
+                $("loggedOutHero").style.display = "none";
             }else{
-                document.getElementById("loggedOutHero").style.display = "block";
+                $("loggedOutHero").style.display = "block";
             }
         </script>
     </body>

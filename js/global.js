@@ -1,5 +1,9 @@
+function $(id) {
+	return document.getElementById(id); //took from https://roomies.gq
+}
+
 loadTheme();
-nav();
+go();
 
 window.onload = function(){
     if(loggedIn){
@@ -7,7 +11,7 @@ window.onload = function(){
     }
 }
 if(localStorage.getItem('pfp') !== null && localStorage.getItem('pfp') !== ""){
-    document.getElementById('navpfp').src = localStorage.getItem('pfp');
+    $('navpfp').src = localStorage.getItem('pfp');
 }
 
 var sess = localStorage.getItem("sess");
@@ -16,69 +20,123 @@ if(sess !== null && sess !== ""){
     loggedIn = true;
 }
 if(loggedIn){
-    document.getElementById("loggedOut").style.display = "none";
-    document.getElementById("loggedIn").style.display = "flex";
+    $("loggedOut").style.display = "none";
+    $("loggedIn").style.display = "flex";
 }else{
-    document.getElementById("loggedOut").style.display = "flex";
-    document.getElementById("loggedIn").style.display = "none";
+    $("loggedOut").style.display = "flex";
+    $("loggedIn").style.display = "none";
+}
+
+// front music //
+function getFrontMusic(){
+    var newMusic = $('new-music');
+    var topTracks = $('top-tracks');
+    newMusic.innerHTML = "";
+    topTracks.innerHTML = "";
+    // new music //
+    var newMusicReq = new XMLHttpRequest();
+    newMusicReq.onload = function() {
+        var tmp = JSON.parse(newMusicReq.responseText);
+        var output = "";
+        for( var i in tmp.items.tracks ) {
+            var artists = "";
+            for(var i2 = 0; i2 < Object.keys(tmp.items.tracks[i].artists).length; i2++){
+                if(i2 > 0){
+                    artists += ", "
+                }
+                artists += tmp.items.tracks[i].artists[i2].name;
+            }
+            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
+        }
+        newMusic.innerHTML = output;
+        
+    };
+    newMusicReq.open('GET', 'new-music.json', true);
+    newMusicReq.send();
+    // top tracks //
+    var topTracksReq = new XMLHttpRequest();
+    topTracksReq.onload = function() {
+        var tmp = JSON.parse(topTracksReq.responseText);
+        var output = "";
+        for( var i in tmp.items.tracks ) {
+            var artists = "";
+            for(var i2 = 0; i2 < Object.keys(tmp.items.tracks[i].artists).length; i2++){
+                if(i2 > 0){
+                    artists += ", "
+                }
+                artists += tmp.items.tracks[i].artists[i2].name;
+            }
+            output += '<div class="music-player song" id="'+tmp.id+'-'+tmp.items.tracks[i].id+'"> <div class="artwork light-outline left-br" style="background-image: url('+tmp.items.tracks[i].album.image+')"> <span class="play-button" onclick="p(\''+tmp.id+'-'+tmp.items.tracks[i].id+'\')"> <i class="material-icons" id="plyBtn-'+tmp.id+'-'+tmp.items.tracks[i].id+'"> play_arrow </i> </span> </div> <span class="info"> <span class="title">'+tmp.items.tracks[i].name+'</span> <div class="bottom-info"><span class="artist">'+artists+'</span><span class="line-separator"> • </span><span class="album">'+tmp.items.tracks[i].album.name+'</span></div> </div>';
+        }
+        topTracks.innerHTML = output;
+        
+    };
+    topTracksReq.open('GET', 'top-tracks.json', true);
+    topTracksReq.send();
 }
 
 // navigation //
-function nav(pathParam){
-    var path = null;
-    if(pathParam == null){
-        var path = getUrlPathHash();
+function hideAllPages(){
+    const allPages = document.querySelectorAll(".p-page");
+	for (var i = 0; i < allPages.length; i++) {
+	  allPages[i].style.display = "none";
+	}
+}
+function go(){
+    var path = getAllUrlParams().page;
+    if(path == null || path == "" || path == "/"){
+        home();
+    }else if(path == "/library"){
+         library();
+    }else if(path == "/prefrences"){
+        //
     }else{
-        path = pathParam;
+        pageNotFound(path);
     }
-    var content = document.getElementById("content");
-    content.innerHTML = "";
-    if(path == "/" || path == ""){
-        path = '/home';
-    }
-    var xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            if(xhttp.status == 404){
-                content.innerHTML = '<h2>404</h2><p>Page '+path+' not found</p>';
-            }else{
-                content.innerHTML = xhttp.responseText;
-                if(path == "/home"){
-                    getFrontMusic();
-                }
-                if(path == "/prefrences"){
-                    prefrences();
-                }
-            }
-        };
-    xhttp.open('GET', 'pages/'+path+".html");
-    xhttp.send();
+}
+function pageNotFound(path){
+    hideAllPages();
+    $("p-PageNotFound").style.display = "block";
+    // funtions for this page
+    $("not-found-page").innerHTML = path;
+}
+function home(){
+    hideAllPages();
+    $("p-Home").style.display = "block";
+    //funtions for this page
+    getFrontMusic();
+}
+function library(){
+    hideAllPages();
+    $("p-Library").style.display = "block";
+    //funtions for this page
 }
 
 // nav dropdown //
 function updateNavDropdownContent(){
     if(loggedIn){
-        document.getElementById("loggedInAs").innerHTML = localStorage.getItem("username");
-        document.getElementById("loggedInAs").title = 'Logged in as '+localStorage.getItem("username");
+        $("loggedInAs").innerHTML = localStorage.getItem("username");
+        $("loggedInAs").title = 'Logged in as '+localStorage.getItem("username");
     }
 }
 // nav dropdown display //
-var pfpNavDropdown = document.getElementById('pfpNavDropdown');
-var navDropdown = document.getElementById('navDropdown');
+var pfpNavDropdown = $('pfpNavDropdown');
+var navDropdown = $('navDropdown');
 document.addEventListener("click", function(event) {
     var isClickInside = pfpNavDropdown.contains(event.target);
     var navDropdownContent = navDropdown.contains(event.target);
     
-    if(document.getElementById("navDropdown").style.display == "none" || navDropdownContent){
-        document.getElementById('navDropdown').style.display = "block";
-        document.getElementById('pfpNavDropdown').classList.add("active");
+    if($("navDropdown").style.display == "none" || navDropdownContent){
+        $('navDropdown').style.display = "block";
+        $('pfpNavDropdown').classList.add("active");
     }else{
-        document.getElementById("navDropdown").style.display = "none";
-        document.getElementById("pfpNavDropdown").classList.remove("active");
+        $("navDropdown").style.display = "none";
+        $("pfpNavDropdown").classList.remove("active");
     }
     if (!isClickInside && !navDropdownContent) {
         //the click was outside the nav dropdown
-        document.getElementById("navDropdown").style.display = "none";
-        document.getElementById("pfpNavDropdown").classList.remove("active");
+        $("navDropdown").style.display = "none";
+        $("pfpNavDropdown").classList.remove("active");
     }
 });
 
@@ -126,7 +184,7 @@ function getUserPfp(){
     xhttp.onload = function() {
         var userPfp = xhttp.responseText;
         localStorage.setItem('pfp', userPfp);
-        document.getElementById('navpfp').src = localStorage.getItem('pfp');
+        $('navpfp').src = localStorage.getItem('pfp');
     };
     xhttp.open('GET', 'https://api.stibarc.com/v2/getuserpfp.sjs?id='+localStorage.getItem("username"), true);
     xhttp.send();
@@ -139,15 +197,15 @@ function loadTheme() {
 		if (theme != undefined) {
 			if (theme == "custom") {
 				if (localStorage.getItem('customtheme').trim() != "") {
-					document.getElementById('themer').href = localStorage.getItem('customtheme');
+					$('themer').href = localStorage.getItem('customtheme');
 				} else {
-					document.getElementById('themer').href = 'css/themes/light.css';
+					$('themer').href = 'css/themes/light.css';
 				}
 			} else {
-				document.getElementById('themer').href = 'css/themes/'+theme+".css";
+				$('themer').href = 'css/themes/'+theme+".css";
 			}
 		} else {
-			document.getElementById('themer').href = 'css/themes/light.css';
+			$('themer').href = 'css/themes/light.css';
 		}
 	} catch(err) {
 		console.error(err);
