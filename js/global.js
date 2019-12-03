@@ -1,5 +1,5 @@
 function $(id) {
-	return document.getElementById(id); //took from https://roomies.gq
+	return document.getElementById(id); //less typing
 }
 
 loadTheme();
@@ -113,12 +113,14 @@ function go(){
     }
 }
 function pageNotFound(path, load){
+    document.title = "404 Not Found";
     hideAllPages();
     $("p-PageNotFound").style.display = "block";
     // funtions for this page
     $("not-found-page").innerHTML = path;
 }
 function home(load){
+    document.title = "Home - STiBaRC Music";
     hideAllPages();
     $("a-home").classList.add("active");
     $("p-Home").style.display = "block";
@@ -131,6 +133,7 @@ function home(load){
     }
 }
 function library(load){
+    document.title = "Library - STiBaRC Music";
     hideAllPages();
     $("a-library").classList.add("active");
     $("p-Library").style.display = "block";
